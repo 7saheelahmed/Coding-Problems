@@ -1,0 +1,68 @@
+**********************************************************************************************
+// Implementing Queues using 2 stacks 
+//Algorithm:-
+
+//enQueue(q,  x)
+//  1) Push x to stack1 (assuming size of stacks is unlimited).
+
+//deQueue(q)
+//  1) If both stacks are empty then error.
+//  2) If stack2 is empty
+//       While stack1 is not empty, push everything from stack1 to stack2.
+//  3) Pop the element from stack2 and return it.
+***********************************************************************************************
+
+void enQueue(q , x){
+    q.push(x);
+}
+
+void deQueue(){
+    if(stack2.empty() && stack1.empty()){
+        cout<<"No Element there:";
+        exit(0);
+    }
+    if(stack2.empty()){
+        while(stack1.top()!=NULL){
+            stack2.push(stack1.top());
+            stack1.pop();
+        }
+    }
+    return stack2.top();
+}
+**********************************************************************************************
+// Implementing Queues using 1 user stack and function call 
+//Algorithm:-
+
+//enQueue(q,  x)
+//  1) Push x to stack1 (assuming size of stacks is unlimited).
+
+//deQueue(q)
+//  1) If  stack is empty then error.
+//  2) If stack2 has 1 element then return it.
+//  3) Pop everything from the stack one by one store it in a variable push it in 
+//     everything back and return the varible.     
+***********************************************************************************************
+void enQueue(q,x){
+    q.push(x);
+}
+void deQueue(){
+    l = stack.size()
+    if(stack.empty()){
+        cout<<"Error";
+        exit(0);
+    }
+    if(stack.size()==1){
+        return stack.pop();
+    }
+    x =stack.pop();
+    ans  = deQueue();
+    stack.push(x);
+    
+    return ans;
+}
+
+
+
+
+
+
